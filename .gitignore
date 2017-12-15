@@ -1,0 +1,7 @@
+cAuth.sql
+sftp-config.json
+application/logs/*.log
+application/business/*.json
+application/config/config.php
+application/config/database.php
+index.php
