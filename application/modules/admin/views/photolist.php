@@ -9,7 +9,14 @@
     ?>
     <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
         <div class="media__item">
-            <a href="#" <?php echo 'onclick="bindPhoto(\''.$m['guid'].'\','.$_GET['photo_id'].')"' ?> >
+            <a href="#" <?php
+            if(isset($from) && $from=='carousel'){
+                echo 'onclick="bindPhoto(\''.$m['guid'].'\','.$_GET['photo_id'].')"';
+            }
+            if(isset($from) && $from=='about'){
+                echo 'onclick="changeLogo(\''.$m['guid'].'\')"';
+            }
+                    ?> >
                 <img style="width:100px;height: 100px" src="<?php echo $m['guid'] ?>" alt="">
             </a>
         </div>

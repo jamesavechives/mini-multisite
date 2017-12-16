@@ -71,6 +71,7 @@ class Admin_model extends CI_Model {
                 'contact' => $this->input->post('contact'),
                 'address' => $this->input->post('address'),
                 'appid' => $this->input->post('appid'),
+                'app_logo' => $this->input->post('app-logo'),
                 'secret_key' => $this->input->post('secret_key'),
                 'created_at'=> date("Y-m-d H:i:s"),   
             );
@@ -87,6 +88,7 @@ class Admin_model extends CI_Model {
                 'contact' => $this->input->post('contact'),
                 'address' => $this->input->post('address'),
                 'appid' => $this->input->post('appid'),
+                'app_logo' => $this->input->post('app-logo'),
                 'secret_key' => $this->input->post('secret_key'),
                 'created_at'=> date("Y-m-d H:i:s"),   
             );

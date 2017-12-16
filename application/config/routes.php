@@ -89,7 +89,7 @@ $route['(:num)/promotions/get_coupon_info'] = 'promotions/get_coupon_info/$1';
 $route['(:num)/promotions/get_user_coupon_info'] = 'promotions/get_user_coupon_info/$1';
 
 // Wechat default
-$route['default_controller'] = 'products/index';
+$route['default_controller'] = 'admin/view';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['weapp'] = '/';

@@ -47,6 +47,9 @@ class Media extends Admin {
             if(isset($_GET['photo_id'])){
                 $photo_id = "&photo_id=".$_GET['photo_id'];
             }
+            if(isset($_GET['from'])){
+                $data['from'] = $_GET['from'];
+            }
             // paginate
              $paginate = array();
              $page = 1;

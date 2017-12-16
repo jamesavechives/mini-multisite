@@ -37,8 +37,10 @@ $(".btn-change-product").click(function(e){
 $(".btn-change-media").click(function(e){
     $( "#mediaModal" ).modal("show");
     var Id = $(this).closest('td').data('id');
-    show_page_for_modal(base_url+'media/photo_list?photo_id='+Id);
+    var from = $(this).closest('td').data('from');
+    show_page_for_modal(base_url+'media/photo_list?from='+from+'&photo_id='+Id);
 });
+
 function bindProduct(product_id,photo_id,product_name)
 {
        

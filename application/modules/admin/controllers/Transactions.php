@@ -50,18 +50,18 @@ class Transactions extends Admin {
              $data['paginate'] = $paginate;
              $base_url = $this->config->base_url();
              if(($page == 1) &&($page!=ceil($paginate['records']/$paginate['each_page_count'])) ){
-                 $data['next'] = $base_url."admin_orders/view?&page=2";
+                 $data['next'] = $base_url."transactions/view?&page=2";
              }
              else if(($page >1) && $page == ceil($paginate['records']/$paginate['each_page_count']))
              {
                  $previous = $page-1;
-                 $data['previous'] = $base_url."admin_orders/views?page=".$previous;
+                 $data['previous'] = $base_url."transactions/view?page=".$previous;
              }
              else if($page > 1){
                  $previous = $page-1;
                  $next = $page+1;
-                 $data['previous'] = $base_url."admin_orders/view?page=".$previous;
-                 $data['next'] = $base_url."admin_orders/view?page=".$next;
+                 $data['previous'] = $base_url."transactions/view?page=".$previous;
+                 $data['next'] = $base_url."transactions/view?page=".$next;
              }
             $this->load->view('admin/orders',$data);
         }

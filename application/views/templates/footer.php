@@ -9,6 +9,7 @@
     </div>
   </div>
 </div>
+
 <div class="modal small fade" id="confirmModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

@@ -150,7 +150,7 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <input type="submit" name="submit" class="btn btn-danger waves-effect btn-block" value="设置产品" />
+                    <input type="submit" name="submit" class="btn btn-danger waves-effect btn-block" value="发布产品" />
                     <input type="button"  class="btn  btn-block" onclick="show_page_for_backend('<?php echo base_url()?>admin/products')" value="取消" />
                 </div>
             </div>

@@ -26,6 +26,7 @@ $(window).on('load', function () {
       jQuery('.li-users').addClass("navigation__active");
     }
 });
+
 function enterSite(siteId,siteName)
 {
     var base_url = $('#base_url').val();

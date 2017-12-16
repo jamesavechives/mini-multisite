@@ -31,13 +31,13 @@
                                 echo '<td ><img style="width:50px;height:50px" src="'.$photo['item_cover'].'" /></td>';
                                 echo '<td >'. mb_substr($photo['goods-name'],0,10,"utf-8") .'</td>';
                             //    echo '<td data-id="'.$i.'"><input type="file" id="pictureInput'.$i.'" name="upfile"  value="更改图片" /></td>';
-                                echo '<td data-id="'.$i.'"><input type="button" id="choosePic'.$i.'" name="pic"  value="更改图片" class="btn-change-media btn btn-primary" /></td>';
+                                echo '<td data-from="carousel" data-id="'.$i.'"><input type="button" id="choosePic'.$i.'" name="pic"  value="更改图片" class="btn-change-media btn btn-primary" /></td>';
                                 echo '<td ><input type="button" data-id="'.$i.'"  value="更改产品" class="btn-change-product btn btn-primary" /></td>';
                             } else {
                                 echo '<td >未设置产品</td>';
                                 echo '<td >无产品</td>';
                             //    echo '<td data-id="'.$i.'"><input type="file" id="pictureInput'.$i.'" name="upfile"  value="更改图片" /></td>';
-                                echo '<td data-id="'.$i.'"><input type="button" id="choosePic'.$i.'" name="pic"  value="更改图片" class="btn-change-media btn btn-primary"/></td>';
+                                echo '<td data-from="carousel" data-id="'.$i.'"><input type="button" id="choosePic'.$i.'" name="pic"  value="更改图片" class="btn-change-media btn btn-primary"/></td>';
                                 echo '<td ><input type="button" data-id="'.$i.'" value="设置产品" class="btn-change-product btn btn-primary" /></td>';
                             }
                             
@@ -49,7 +49,7 @@
                             echo '<td >未设置产品</td>';
                             echo '<td >无产品</td>';
                         //    echo '<td data-id="'.$i.'"><input type="file" id="pictureInput'.$i.'" name="upfile"  value="设置图片" /></td>';
-                            echo '<td data-id="'.$i.'"><input type="button" id="choosePic'.$i.'" name="pic"  value="设置图片" class="btn-change-media btn btn-primary" /></td>';
+                            echo '<td data-from="carousel" data-id="'.$i.'"><input type="button" id="choosePic'.$i.'" name="pic"  value="设置图片" class="btn-change-media btn btn-primary" /></td>';
                             echo '<td ><input type="button" data-id="'.$i.'" value="设置产品" class="btn-change-product btn btn-primary" /></td>';
                             echo '</tr>';
                         }
