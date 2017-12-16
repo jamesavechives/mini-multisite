@@ -94,7 +94,7 @@
                             echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/carousel_photos\')"><i class="zmdi zmdi-collection-image"></i>轮播图片</a>';
                         ?>
                     </li>
-                    <li>
+                    <li class="bank">
                         <?php 
                             $base_url = $this->config->base_url();
                             echo '<a onclick="show_page_for_backend(\'' . $base_url . 'media/view\')"><i class="zmdi zmdi-collection-image"></i>图片银行</a>';

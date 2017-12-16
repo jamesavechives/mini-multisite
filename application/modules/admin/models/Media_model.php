@@ -41,5 +41,26 @@ class Media_model extends CI_Model {
             unlink($file_name);
             $this->db->delete($this->table_media,array('id'=>$id));
         }
+        
+        public function set_carousel_photo($data=array()){
+            $where=[
+              'pid'     =>  $data['pid'],
+              'site_id' =>  $data['site_id']
+            ];
+            $this->db->select("*");
+            $this->db->from('carouselPhotos');
+            $this->db->where($where);
+            $query = $this->db->get();
+            $num = $query->num_rows();
+            if($num == 0){
+                $this->db->insert('carouselPhotos',$data);
+            }
+            else{
+                $new_data = $query->result_array()[0];
+                $new_data['pic'] = $data['pic'];
+                $this->db->where($where);
+                $this->db->update('carouselPhotos',$new_data);
+            }
+        }
 }
 

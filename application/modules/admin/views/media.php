@@ -8,8 +8,8 @@
     ?>
     <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
         <div class="contacts__item">
-            <a href="" class="contacts__img">
-                <img src="<?php echo $m['guid'] ?>" alt="">
+            <a href="#">
+                <img style="height:125px;width:125px" src="<?php echo $m['guid'] ?>" alt="">
             </a>
             <div class="contacts__info">
                 <strong><a href="#">删除</a></strong>

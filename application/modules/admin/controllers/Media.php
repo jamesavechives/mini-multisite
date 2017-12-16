@@ -41,51 +41,51 @@ class Media extends Admin {
              $this->load->view('admin/media',$data);
         }
         
-        public function create_site()
+        public function photo_list()
         {
-            if($this->session->userdata('user_id')!=1){
-                die("You do not have the permission!");
+            $photo_id = "";
+            if(isset($_GET['photo_id'])){
+                $photo_id = "&photo_id=".$_GET['photo_id'];
             }
-            $this->load->helper('form');
-            $this->load->library('form_validation');
-            $this->form_validation->set_rules('name', 'industry', 'required');
-            
-            if ($this->form_validation->run() === FALSE)
-            {
-                $this->load->view('admin/create_site');
-
-            }
-            else
-            {
-                 // insert site
-                $result = $this->admin_model->create_site();
-                
-                if(isset($result['site_id'])&&($result['site_id']>0)){
-                    $industry_model = 'admin_'.$result['industry'].'_model';
-                    $this->load->model($industry_model);
-                    $item_id = $this->{$industry_model}->generate_site_tables($result['site_id']);
-                }
-            }
+            // paginate
+             $paginate = array();
+             $page = 1;
+             if(isset($_GET['page'])){
+                 $page = $_GET['page'];
+             }
+             $paginate['page'] = $page;
+             $paginate['each_page_count'] = 15;
+             $result = $this->media_model->get_media_list($paginate);
+             $data['media'] = $result[0];
+             $paginate['records'] = $result[1];
+             $data['paginate'] = $paginate;
+             $base_url = $this->config->base_url();
+             if(($page == 1) &&($page!=ceil($paginate['records']/$paginate['each_page_count'])) ){
+                 $data['next'] = $base_url."media/photo_list?&page=2".$photo_id;
+             }
+             else if(($page >1) && $page == ceil($paginate['records']/$paginate['each_page_count']))
+             {
+                 $previous = $page-1;
+                 $data['previous'] = $base_url."media/photo_list?page=".$previous.$photo_id;
+             }
+             else if($page > 1){
+                 $previous = $page-1;
+                 $next = $page+1;
+                 $data['previous'] = $base_url."media/photo_list?page=".$previous.$photo_id;
+                 $data['next'] = $base_url."media/photo_list?page=".$next.$photo_id;
+             }
+             $this->load->view('admin/photolist',$data);
         }
         
-        public function update_site()
+        public function bind_carousel_photo()
         {
-            $this->admin_model->create_site($this->site_id);
-        }
-        
-        public function about()
-        {
-            if($this->site_id==0){
-                die("You do not have the permission!");
-            }
-            $data['mysite']=$this->admin_model->get_site_detail($this->site_id);
-            $this->load->view('admin/about',$data);
-        }
-        public function site_detail()
-        {
-            $data['data']=$this->admin_model->get_site_detail($this->site_id);
-            $data['status'] = 0;
-            $this->output->set_output(json_encode($data));
+            $data=[
+              'pid'=>$this->input->get('photo_id'),
+              'pic'=>$this->input->get('guid'),
+              'site_id'=>$this->site_id  
+            ];
+            $this->media_model->set_carousel_photo($data);
+            $this->output->set_output('successful!');
         }
            
 }
