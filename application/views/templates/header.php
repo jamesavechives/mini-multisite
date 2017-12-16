@@ -97,6 +97,12 @@
                     <li>
                         <?php 
                             $base_url = $this->config->base_url();
+                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'media/view\')"><i class="zmdi zmdi-collection-image"></i>图片银行</a>';
+                        ?>
+                    </li>
+                    <li>
+                        <?php 
+                            $base_url = $this->config->base_url();
                             echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/products_categories\')"><i class="zmdi zmdi-label-alt"></i>分类</a>';
                         ?>
                     </li>

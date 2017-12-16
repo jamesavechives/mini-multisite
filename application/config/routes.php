@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+// admin media module
+$route['media/view'] = 'admin/media/view';
 // admin coupons module
 $route['coupons/delete_coupon'] = 'admin/coupons/delete_coupon';
 $route['coupons/view'] = 'admin/coupons/view';

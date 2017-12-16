@@ -24,7 +24,7 @@ class Admin extends MX_Controller {
                     $this->industry_model='admin_'.$this->industry.'_model';
                     $this->load->model('admin_'.$this->industry.'_model',NULL,FALSE,array('site_id'=>$this->site_id));
                 }
-                
+                $this->load->model('media_model',NULL,FALSE,array('site_id'=>$this->site_id));
                 $this->load->model('products/products_model',NULL,FALSE,array('site_id'=>$this->site_id));
                 $this->load->helper('url_helper');
         }
