@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['media/view'] = 'admin/media/view';
 $route['media/photo_list'] = 'admin/media/photo_list';
 $route['media/bind_carousel_photo'] = 'admin/media/bind_carousel_photo';
+$route['media/upload_media'] = 'admin/media/upload_media';
 // admin coupons module
 $route['coupons/delete_coupon'] = 'admin/coupons/delete_coupon';
 $route['coupons/view'] = 'admin/coupons/view';

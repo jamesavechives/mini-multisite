@@ -13,6 +13,7 @@ class Media_model extends CI_Model {
         public function get_media_list($paginate=NULL){
             $this->db->select('*');
             $this->db->from($this->table_media);
+            $this->db->order_by('id','desc');
             if(null !=$paginate ){
                 $index = intval($paginate['page']);
                 $row = intval($paginate['each_page_count']);

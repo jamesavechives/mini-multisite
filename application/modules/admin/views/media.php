@@ -1,7 +1,5 @@
-<header class="content__title">
-    <h1>图片银行</h1>
-</header>
-
+<input type="button" id='btn-upload-media'  value="上传图片" class="btn btn-primary" />
+<div id='new-img-file' hidden><input type="file" name="media-image" id="media_image" multipe="false"/></div>
 <div class="contacts customer__list row">
     <?php
         foreach($media as $m){
@@ -50,3 +48,4 @@
     </div>
 </div>
 
+<script type="text/javascript" src="<?php echo base_url().'assets/' ?>js/media.js"></script>

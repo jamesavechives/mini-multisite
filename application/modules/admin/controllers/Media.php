@@ -18,7 +18,7 @@ class Media extends Admin {
                  $page = $_GET['page'];
              }
              $paginate['page'] = $page;
-             $paginate['each_page_count'] = 15;
+             $paginate['each_page_count'] = 18;
              $result = $this->media_model->get_media_list($paginate);
              $data['media'] = $result[0];
              $paginate['records'] = $result[1];
@@ -54,7 +54,7 @@ class Media extends Admin {
                  $page = $_GET['page'];
              }
              $paginate['page'] = $page;
-             $paginate['each_page_count'] = 15;
+             $paginate['each_page_count'] = 18;
              $result = $this->media_model->get_media_list($paginate);
              $data['media'] = $result[0];
              $paginate['records'] = $result[1];
@@ -75,6 +75,25 @@ class Media extends Admin {
                  $data['next'] = $base_url."media/photo_list?page=".$next.$photo_id;
              }
              $this->load->view('admin/photolist',$data);
+        }
+        
+        public function upload_media()
+        {
+            $_FILES['file']['name'] = $_FILES['pictureFile']['name'];
+            $_FILES['file']['type'] = $_FILES['pictureFile']['type'];
+            $_FILES['file']['tmp_name'] = $_FILES['pictureFile']['tmp_name'];
+            $_FILES['file']['error'] = $_FILES['pictureFile']['error'];
+            $_FILES['file']['size'] = $_FILES['pictureFile']['size'];
+            $uploadResults = json_decode($this->upload(),true);
+            if($uploadResults['code'] == 0){
+                $fileData = $uploadResults['data'];
+                $uploadData['created_at'] = date('Y-m-d H:m:s');
+                $uploadData['updated_at'] = date('Y-m-d H:m:s');
+                $uploadData['guid'] = $fileData['imgUrl'];
+                //Insert file information into the database
+                $file_id = $this->admin_model->insert_single_file($uploadData);
+                $this->output->set_output('successful!');
+            }
         }
         
         public function bind_carousel_photo()
