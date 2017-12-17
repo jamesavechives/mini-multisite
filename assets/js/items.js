@@ -92,76 +92,7 @@ if( items_js == false ){
             $('.p'+pid).prop('checked', true);
         }
     });
-  /*
-   * Onclick add goods specification button
-   * 
-   */
-       $( document ).on('click', '.add-goods-specification', function() {
-                var $modal = $('#goodsSpecificationModal');
-                $('#goodsSpecificationModal').modal("show");
-//                $modal.find('.goods-specification.active').removeClass('active');
-//                $.each(speModels, function(key, m) {
-//                    $modal.find('.goods-specification[data-index=' + key + ']').addClass('active');
-//                });
-//                $('#goodsSpecificationModal').modal();
 
-            });
-       $( document ).on('click', '.goods-specification', function() {
-                if (!$(this).hasClass('active') && $('.goods-specification.active').length >= 5) {
-                    alertTip('最多只能选择5个规格');
-                    return;
-                }
-                $(this).toggleClass('active');
-            });
-         $( document ).on('click', '.goods-specification-confirm', function() {
-
-            var $specification, 
-                spcId, 
-                nomatch = true,
-                $active = $('#goodsSpecificationModal .goods-specification.active');
-
-//            $.each(speModels, function(key, model) {
-//                nomatch = true;
-//                $active.each(function(index, activeSpe) {
-//                    if ($(activeSpe).attr('data-index') == key) {
-//                        nomatch = false;
-//                        return false;
-//                    }
-//                });
-//                if(nomatch) {
-//                    delete speModels[key];
-//                }
-//            });
-
-            $active.each(function(index, spe) {
-                $specification = $(spe);
-                spcId = $specification.attr('data-index');
-
-//                if (!speModels[spcId]) {
-//                    speModels[spcId] = {
-//                        id: spcId,
-//                        name: $specification.text(),
-//                        subModelName: [],
-//                        subModelId: []
-//                    };
-//                }
-            });
-            $('#goodsSpecificationModal').modal('hide');
-            modifyGoodsSpecification();
-            paintSpecificationTable();
-        });
-          $(document).on('click', '.add-custom-specification', function() {
-    // 娣诲姞瑙勬牸
-                $(this).before('<span class="btn btn-sm btn-default goods-specification-input"><input class="form-control" type="text"><span class="glyphicon glyphicon-ok"></span></span>').find('input').focus();
-              }).on('click', '.goods-specification-input > .glyphicon-ok', function() {
-                // 淇濆瓨鏂版坊瑙勬牸
-                var val = $(this).siblings('input').val().trim();
-                if (val.length > 4) {
-                  alertTip('不能大于4个规格');
-                  return;
-                }
-                $(this).parent().removeClass('goods-specification-input').addClass('goods-specification').html(val).attr('data-index', specificationIndex++);
-          });
     items_js = true;
 }
 jQuery( '#form-edit-mandate' ).submit( function(e) {

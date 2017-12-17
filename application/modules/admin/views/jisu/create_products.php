@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo base_url().'assets/' ?>css/items.css">
+<link rel="stylesheet" href="<?php echo base_url().'assets/' ?>css/manager-goods.css">
 <header class="content__title">
     <h1>设置产品</h1>
     <small>在本页设置产品信息.</small>
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-12">
                     <div class="field-group">
                       <input type="button" class="add-goods-specification" value="添加规格"/>
                             <div class="specification-detail-container">
@@ -169,7 +169,7 @@
         <div class="goods-modal-content">
           <h5>我的规格</h5>
           <div>
-                        <!-- <span class="btn btn-sm btn-default goods-specification-input"><input class="form-control" type="text"><span class="glyphicon glyphicon-ok"></span></span> -->
+<!--                         <span class="btn btn-sm btn-default goods-specification-input"><input class="form-control" type="text"><span class="glyphicon glyphicon-ok"></span></span> -->
             <button class="btn btn-sm btn-default add-custom-specification">
             <span class="glyphicon glyphicon-plus"></span> 添加标签</button>
           </div>
@@ -196,4 +196,5 @@
   </div>
 </div>
 <script type="text/javascript" src="<?php echo base_url().'assets/' ?>js/items.js"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/' ?>js/manager_goods_manage.js"></script>
 
