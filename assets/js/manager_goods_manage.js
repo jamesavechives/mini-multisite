@@ -154,8 +154,9 @@ function bindGoodsEvents() {
   }).on('click', '.sub-specification-edit', function() {
     // 
     $(this).parent().addClass('editing');
-  }).on('click', '.add-sub-specification', function() {
+  }).on('click', '.add-sub-specification', function(e) {
     // 
+    e.preventDefault();
     $(this).before('<div class="specification-case editing"><input class="form-control" type="text"><label></label><span class="glyphicon glyphicon-ok sub-specification-confirm"></span><span class="glyphicon glyphicon-pencil sub-specification-edit"></span><span class="glyphicon glyphicon-remove sub-specification-remove"></span></div>');
   }).on('input', '.spe-all-price', function() {
     // 
