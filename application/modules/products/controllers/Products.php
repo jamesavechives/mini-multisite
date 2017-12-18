@@ -204,7 +204,10 @@ class Products extends CI_Controller {
                     ];
             $goods = $this->products_model->get_products($where);
             }
-            else{
+            else if($idx_arr['idx_value']==0){
+                $goods=$this->products_model->get_recommend("no-limit");
+            }
+            else {
                 $where = [
                     'is_deleted'=>0
                 ];

@@ -14,12 +14,16 @@ class Products_model extends CI_Model {
                 $this->load->database();
         }
         
-        public function get_recommend(){
+        public function get_recommend($limit=null){
             $this->db->select('*');
             $this->db->from(self::$table_products);
             $this->db->where(array('is_recommend'=>1,'is_deleted'=>0));
             $this->db->order_by('id','asc');
-            $this->db->limit(6);
+            if($limit =="no-limit" ){
+            }
+            else if($limit == null){
+                $this->db->limit(6);
+            }    
             $query = $this->db->get();
             return $query->result_array();
         }
