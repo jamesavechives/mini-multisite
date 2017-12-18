@@ -10,7 +10,7 @@
                 <img style="height:125px;width:125px" src="<?php echo $m['guid'] ?>" alt="">
             </a>
             <div class="contacts__info">
-                <strong><a href="#">删除</a></strong>
+                <strong><a href="#" onclick="del(<?php echo $m['id'] ?>)">删除</a></strong>
             </div>
             <button class="contacts__btn" data-toggle="modal" data-target="#modal-guid<?php echo $m['id'] ?>">链接</button>
             <div class="modal fade show" id="modal-guid<?php echo $m['id'] ?>" tabindex="-1" style="display: none;">     

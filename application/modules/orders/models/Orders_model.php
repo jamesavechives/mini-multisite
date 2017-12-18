@@ -176,5 +176,28 @@ class Orders_model extends CI_Model {
             $this->db->update($this->table_orders,$data,$where);
         }
         
+        //获取已付款订单金额
+        public function get_paid_amount($array=NULL){
+            $this->db->select_sum('order_total_price');
+            $this->db->from($this->table_orders);
+            if(null != $array ){
+                    $this->db->where($array);
+            }
+            $query = $this->db->get();
+            return $query->result();
+        }
+        
+        //获取订单数量
+        public function get_orders_num($array=NULL){
+            $this->db->select('*');
+            $this->db->from($this->table_orders);
+            if(null != $array ){
+                $this->db->where($array);
+            }
+            $query = $this->db->get();
+            $data = $query->num_rows();
+            return $data;
+        }
+        
 }
 

@@ -7,8 +7,8 @@
     <div class="col-sm-6 col-md-3">
         <div class="quick-stats__item bg-blue">
             <div class="quick-stats__info">
-                <h2>987,459</h2>
-                <small>Total App Traffics</small>
+                <h2><?php echo $total_amount; ?>元</h2>
+                <small>总收款金额</small>
             </div>
 
             <div class="quick-stats__chart sparkline-bar-stats"><canvas width="58" height="36" style="display: inline-block; width: 58px; height: 36px; vertical-align: top;"></canvas></div>
@@ -18,8 +18,8 @@
     <div class="col-sm-6 col-md-3">
         <div class="quick-stats__item bg-amber">
             <div class="quick-stats__info">
-                <h2>356,785K</h2>
-                <small>Total Registered User</small>
+                <h2><?php echo $total_customers; ?></h2>
+                <small>总客户</small>
             </div>
 
             <div class="quick-stats__chart sparkline-bar-stats"><canvas width="58" height="36" style="display: inline-block; width: 58px; height: 36px; vertical-align: top;"></canvas></div>
@@ -29,8 +29,8 @@
     <div class="col-sm-6 col-md-3">
         <div class="quick-stats__item bg-purple">
             <div class="quick-stats__info">
-                <h2>$58,778</h2>
-                <small>Total Online Sales</small>
+                <h2><h2><?php echo $today_order; ?></h2></h2>
+                <small>今日订单</small>
             </div>
 
             <div class="quick-stats__chart sparkline-bar-stats"><canvas width="58" height="36" style="display: inline-block; width: 58px; height: 36px; vertical-align: top;"></canvas></div>
@@ -40,8 +40,8 @@
     <div class="col-sm-6 col-md-3">
         <div class="quick-stats__item bg-red">
             <div class="quick-stats__info">
-                <h2>214</h2>
-                <small>Total Product Sold</small>
+                <h2><?php echo $process_order; ?></h2>
+                <small>未处理订单</small>
             </div>
 
             <div class="quick-stats__chart sparkline-bar-stats"><canvas width="58" height="36" style="display: inline-block; width: 58px; height: 36px; vertical-align: top;"></canvas></div>
@@ -49,7 +49,8 @@
     </div>
 </div>
 
-<div class="row">
+
+<!--<div class="row">
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
@@ -77,4 +78,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
