@@ -64,7 +64,25 @@ class Admin extends MX_Controller {
 
         public function view()
         {
-            $this->load->view('admin/view');
+            $data = array();
+            $this->load->model('orders/orders_model',NULL,FALSE,array('site_id'=>$this->site_id));
+            $where = [
+              'status > ' =>3  
+            ];
+            $res = $this->orders_model->get_paid_amount($where);
+            $data['total_amount'] = $res[0]->order_total_price;
+            $this->load->model('customer/customer_model',NULL,FALSE,array('site_id'=>$this->site_id));
+            $where = [
+              'add_time >'=>date('Y-m-d').' 00:00:00',  
+            ];
+            $data['today_order'] = $this->orders_model->get_orders_num($where);
+             $where = [
+              'status' =>4  
+            ];
+             $data['process_order'] = $this->orders_model->get_orders_num($where);
+            $data['total_customers'] = $this->customer_model->get_customers_num();
+            
+            $this->load->view('admin/view',$data);
         }
         
         public function settings()

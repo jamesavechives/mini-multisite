@@ -38,6 +38,13 @@ class Customer_model extends CI_Model {
             return $query->result_array();
         }
     }
+    public function get_customers_num(){
+        $this->db->select('*');
+        $this->db->from($this->table_customer);
+        $query = $this->db->get();
+        $data = $query->num_rows();
+        return $data;
+    }
     public function get_customer_info($array=NULL){
         $this->db->select('*');
         $this->db->from($this->table_customer);

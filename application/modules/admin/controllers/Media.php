@@ -109,6 +109,13 @@ class Media extends Admin {
             $this->media_model->set_carousel_photo($data);
             $this->output->set_output('successful!');
         }
+        
+        public function delete_media()
+        {
+            $pid = $this->input->get('pid');
+            $this->media_model->delete_media($pid);
+            $this->output->set_output('successful!');
+        }
            
 }
 
