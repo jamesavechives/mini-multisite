@@ -185,7 +185,7 @@ class Products extends CI_Controller {
                 $data['is_more']=($data['total_page']>$data['current_page'])?1:0;
             }else {
                 $param['is_deleted']=0;
-                $param['category'] = $_GET['cate_type'];
+                $param['category'] = $_GET['cate-type'];
                 $paginate['each_page_count'] = 10;
                 $paginate['page'] = 1;
                 $goods = $this->products_model->get_products($param,null,$paginate);
