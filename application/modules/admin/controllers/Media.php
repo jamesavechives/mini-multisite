@@ -24,7 +24,7 @@ class Media extends Admin {
              $paginate['records'] = $result[1];
              $data['paginate'] = $paginate;
              $base_url = $this->config->base_url();
-             if(($page == 1) &&($page!=ceil($paginate['records']/$paginate['each_page_count'])) ){
+             if(($page == 1) &&($page!=ceil($paginate['records']/$paginate['each_page_count']))&& $paginate['records']>0  ){
                  $data['next'] = $base_url."media/view?&page=2";
              }
              else if(($page >1) && $page == ceil($paginate['records']/$paginate['each_page_count']))
@@ -32,7 +32,7 @@ class Media extends Admin {
                  $previous = $page-1;
                  $data['previous'] = $base_url."media/view?page=".$previous;
              }
-             else if($page > 1){
+             else if($page > 1 ){
                  $previous = $page-1;
                  $next = $page+1;
                  $data['previous'] = $base_url."media/view?page=".$previous;
@@ -63,7 +63,7 @@ class Media extends Admin {
              $paginate['records'] = $result[1];
              $data['paginate'] = $paginate;
              $base_url = $this->config->base_url();
-             if(($page == 1) &&($page!=ceil($paginate['records']/$paginate['each_page_count'])) ){
+             if(($page == 1) &&($page!=ceil($paginate['records']/$paginate['each_page_count']))&& $paginate['records']>0 ){
                  $data['next'] = $base_url."media/photo_list?&page=2".$photo_id;
              }
              else if(($page >1) && $page == ceil($paginate['records']/$paginate['each_page_count']))

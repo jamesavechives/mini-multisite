@@ -1,7 +1,3 @@
-<header class="content__title">
-    <h1>Catalogue Products</h1>
-    <small>In this page you can managed you products.</small>
-</header>
 
 <div class="card">
     <div class="card-header d-flex flex-row justify-content-between">

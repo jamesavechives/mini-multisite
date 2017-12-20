@@ -184,11 +184,27 @@ class Products extends CI_Controller {
                 $data['total_page']=ceil($goods[1]/$paginate['each_page_count']);
                 $data['is_more']=($data['total_page']>$data['current_page'])?1:0;
             }else {
-                $param['is_deleted']=0;
-                $param['category'] = $_GET['cate-type'];
-                $paginate['each_page_count'] = 10;
-                $paginate['page'] = 1;
-                $goods = $this->products_model->get_products($param,null,$paginate);
+                $idx_arr = isset($_POST['idx_arr'])?$_POST['idx_arr']:(isset($_GET['idx_arr'])?$_GET['idx_arr']:null);
+                $key = ($idx_arr['idx']=='category')?'category_id':$idx_arr['idx'];
+                if($key!='category_id' && $key != null){
+                $where = [
+                            'is_deleted'=>0,
+                            $key=>$idx_arr['idx_value']
+                        ];
+                $goods = $this->products_model->get_products($where);
+                }
+                else if(isset($idx_arr['idx_value'])&&$idx_arr['idx_value']==0){
+                    $goods=$this->products_model->get_recommend("no-limit");
+                }
+                elseif(isset($idx_arr['idx_value'])) {
+                    $where = [
+                        'is_deleted'=>0
+                    ];
+                   $goods = $this->products_model->get_products_by_cate($idx_arr['idx_value'],$where); 
+                }
+                else{
+                    $goods = array();
+                }
                 $data = $this->get_goodslist($goods);
             }
             

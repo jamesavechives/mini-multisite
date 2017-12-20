@@ -4,7 +4,6 @@
 var goodsManager = {
     
     bindEvent: function() {
-        alert("works");
         var that = this;
         $(document).on('click', '.add-goods-specification', function() {
             var $modal = $('#goodsSpecificationModal');

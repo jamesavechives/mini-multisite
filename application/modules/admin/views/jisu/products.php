@@ -1,8 +1,3 @@
-<header class="content__title">
-    <h1>产品列表</h1>
-    <small>本页展示所有的产品列表</small>
-</header>
-
 <div class="card">
     <div class="card-header d-flex flex-row justify-content-between">
         <h2 class="card-title">产品列表</h2>
