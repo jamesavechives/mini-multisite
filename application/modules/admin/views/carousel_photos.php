@@ -1,7 +1,3 @@
-<header class="content__title">
-    <h1>首页轮播图片</h1>
-</header>
-
 <div class="card">
     <div class="card-header d-flex flex-row justify-content-between">
         <h2 class="card-title">轮播图片</h2>

@@ -40,7 +40,7 @@ class Items extends Admin {
              $data['products'] = $egs;
              $data['paginate'] = $paginate;
              $base_url = $this->config->base_url();
-             if(($page == 1) &&($page!=ceil($paginate['records']/$paginate['each_page_count'])) ){
+             if(($page == 1) &&($page!=ceil($paginate['records']/$paginate['each_page_count'])) && $paginate['records']>0){
                  $data['next'] = $base_url."admin/products?&page=2";
              }
              else if(($page >1) && $page == ceil($paginate['records']/$paginate['each_page_count']))
@@ -86,7 +86,7 @@ class Items extends Admin {
              $data['products'] = $egs;
              $data['paginate'] = $paginate;
              $base_url = $this->config->base_url();
-             if(($page == 1) &&($page!=ceil($paginate['records']/$paginate['each_page_count'])) ){
+             if(($page == 1) &&($page!=ceil($paginate['records']/$paginate['each_page_count']))&& $paginate['records']>0 ){
                  $data['next'] = $base_url."admin/productslist?photo_id=".$photo_id."&page=2";
              }
              else if(($page >1) && $page == ceil($paginate['records']/$paginate['each_page_count']))
