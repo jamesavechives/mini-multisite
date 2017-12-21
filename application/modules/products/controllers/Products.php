@@ -211,25 +211,43 @@ class Products extends CI_Controller {
             $this->output->set_output(json_encode($data));
         }
         public function formDataList(){
-            $idx_arr = isset($_POST['idx_arr'])?$_POST['idx_arr']:$_GET['idx_arr'];
-            $key = ($idx_arr['idx']=='category')?'category_id':$idx_arr['idx'];
-            if($key!='category_id'){
-            $where = [
+            if(isset($_POST['form']) && ($_POST['form'] == 'al')){
+                if(isset($_POST['data_id'])){
+                    $where = [
                         'is_deleted'=>0,
-                        $key=>$idx_arr['idx_value']
+                        'id' => $_POST['data_id']
                     ];
-            $goods = $this->products_model->get_products($where);
+                }
+                else{
+                    $where = [
+                            'is_deleted'=>0,
+                        ];
+                }
+                $goods = $this->products_model->get_products($where);
+                $data = $this->get_allist($goods);
             }
-            else if($idx_arr['idx_value']==0){
-                $goods=$this->products_model->get_recommend("no-limit");
-            }
-            else {
+            else{
+                $idx_arr = isset($_POST['idx_arr'])?$_POST['idx_arr']:$_GET['idx_arr'];
+                $key = ($idx_arr['idx']=='category')?'category_id':$idx_arr['idx'];
+                if($key!='category_id'){
                 $where = [
-                    'is_deleted'=>0
-                ];
-               $goods = $this->products_model->get_products_by_cate($idx_arr['idx_value'],$where); 
+                            'is_deleted'=>0,
+                            $key=>$idx_arr['idx_value']
+                        ];
+                $goods = $this->products_model->get_products($where);
+                }
+                else if($idx_arr['idx_value']==0){
+                    $goods=$this->products_model->get_recommend("no-limit");
+                }
+                else {
+                    $where = [
+                        'is_deleted'=>0
+                    ];
+                   $goods = $this->products_model->get_products_by_cate($idx_arr['idx_value'],$where); 
+                }
+                $data = $this->get_goodslist($goods);
             }
-            $data = $this->get_goodslist($goods);
+            
             $this->output->set_output(json_encode($data));
         }
         public function goodsDetails(){
@@ -312,6 +330,40 @@ class Products extends CI_Controller {
                         $fdata[$i]['form_data']['img_urls'][0] = $main_image[0]['guid']; 
                         $fdata[$i]['form_data']['cover'] = $main_image[0]['guid']; 
                     }
+                    $fdata[$i]['form_data']['is_group_buy']=$good['is_group_buy_goods'];
+                    $fdata[$i]['form_data']['category']=unserialize($good['category']);
+                    $fdata[$i]['form_data']['category_id']=unserialize($good['category_id']);
+                    $i++;
+            }
+            $data['status'] =0;
+            $data['is_more'] =0;
+            $data['current_page']=1;
+            $data['count']=count($goods);
+            $data['total_page']=1;
+            $data['data']=$fdata;
+            return $data;
+        }
+        
+        private function get_allist($goods=array()){
+            $i = 0;
+            $fdata = array();
+            foreach($goods as $good){
+                foreach($good as $key=>$v){
+                    if($key!='category'&&$key!='category_id'&&$key!='is_group_buy_goods'){
+                        $fdata[$i]['form_data'][$key]=$v;
+                    }
+                } 
+                    if(($main_image = $this->products_model->get_main_image($good['id'])) != null){
+                        $fdata[$i]['form_data']['img_urls'][0] = $main_image[0]['guid']; 
+                        $fdata[$i]['form_data'][1] = $main_image[0]['guid']; 
+                    }
+                    $imgs = $this->products_model->get_images($good['id']);
+                      $images = "";
+                      foreach($imgs as $img){
+                          $images = $images.'<img src="'.$img['image_url'].'" />';
+                      }
+                    $fdata[$i]['form_data'][2]=$good['title'];
+                    $fdata[$i]['form_data'][3]=$images;
                     $fdata[$i]['form_data']['is_group_buy']=$good['is_group_buy_goods'];
                     $fdata[$i]['form_data']['category']=unserialize($good['category']);
                     $fdata[$i]['form_data']['category_id']=unserialize($good['category_id']);
