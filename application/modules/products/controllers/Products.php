@@ -217,13 +217,15 @@ class Products extends CI_Controller {
                         'is_deleted'=>0,
                         'id' => $_POST['data_id']
                     ];
+                    $goods = $this->products_model->get_products($where);
                 }
                 else{
                     $where = [
                             'is_deleted'=>0,
                         ];
+                    $goods = $this->products_model->get_products_by_cate(27,$where); 
                 }
-                $goods = $this->products_model->get_products($where);
+                
                 $data = $this->get_allist($goods);
             }
             else{

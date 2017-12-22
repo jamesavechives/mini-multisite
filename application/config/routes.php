@@ -88,6 +88,8 @@ $route['(:num)/promotions/recv_coupon'] = 'promotions/recv_coupon/$1';
 $route['(:num)/promotions/get_user_coupons'] = 'promotions/get_user_coupons/$1';
 $route['(:num)/promotions/get_coupon_info'] = 'promotions/get_coupon_info/$1';
 $route['(:num)/promotions/get_user_coupon_info'] = 'promotions/get_user_coupon_info/$1';
+// user data module
+$route['(:num)/userdata/add_data'] = 'userdata/add_data/$1';
 
 // Wechat default
 $route['default_controller'] = 'admin/view';
