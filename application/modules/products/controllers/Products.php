@@ -221,9 +221,15 @@ class Products extends CI_Controller {
                 }
                 else{
                     $where = [
+                      'site_id'     => $this->site_id,
+                      'group_id'    => 2
+                    ];
+                    $cates = $this->products_model->get_categories($where);
+                    $cate_id = intval($cates[0]['category_id']);
+                    $where = [
                             'is_deleted'=>0,
                         ];
-                    $goods = $this->products_model->get_products_by_cate(27,$where); 
+                    $goods = $this->products_model->get_products_by_cate($cate_id,$where); 
                 }
                 
                 $data = $this->get_allist($goods);
