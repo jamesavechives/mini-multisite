@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+// admin userdata module
+$route['userdata/view'] = 'admin/userdata/view';
 // admin media module
 $route['media/view'] = 'admin/media/view';
 $route['media/photo_list'] = 'admin/media/photo_list';

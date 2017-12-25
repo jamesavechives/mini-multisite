@@ -131,6 +131,12 @@
                             echo '<a onclick="show_page_for_backend(\'' . $base_url . 'admin/customers\')"><i class="zmdi zmdi-accounts-list-alt"></i> 客户</a>';
                         ?> 
                     </li>
+                    <li>
+                        <?php 
+                            $base_url = $this->config->base_url();
+                            echo '<a onclick="show_page_for_backend(\'' . $base_url . 'userdata/view\')"><i class="zmdi zmdi-accounts-list-alt"></i>下单信息</a>';
+                        ?> 
+                    </li>
                     <?php
                     } elseif(isset($user_id)&&is_numeric($user_id)&&$user_id==1){
                     ?>
